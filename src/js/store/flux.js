@@ -1,7 +1,7 @@
 //getState: Función para configurar el estado y las acciones, se le pasan como parámetros las siguientes funciones:
 //getStore: Retorna el estado actual de "store" (contactos, slug, etc.)
 //getActions: Retorna un objeto con todas laas funciones definidas en "actions".
-//setStore: Modifica el estado "store" con las nuevos valores.
+//setStore: Actualiza el estado "store" con las nuevos valores.
 const getState = ({ getStore, getActions, setStore }) => {
 	const urlApi = "https://playground.4geeks.com/contact/";
 	const slug = "Elroro23"; // Asegúrate de reemplazar esto con tu slug específico

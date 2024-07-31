@@ -20,7 +20,7 @@ const Contacts = ({ imgs }) => { //Componente al cual se le envían imagenes com
     const editRef = useRef(null); //Referencia al DIV de edición(para que la pantalla se acerque al editar el contacto).
 
     useEffect(() => {
-        actions.fetchContacts(); //Carga los contactos cuando se monta el componente.
+        actions.fetchContacts(); //Carga los contactos cuando se monta el componente(Debería de ir en appContext.js).
     }, []);
 
 //Función para manejar la cción de editar un contacto.
