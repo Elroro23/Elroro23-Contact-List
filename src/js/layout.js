@@ -1,37 +1,33 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import ScrollToTop from "./component/scrollToTop";
-
+import NewContact from "./component/NewContact";
 import { Home } from "./views/home";
-import { Demo } from "./views/demo";
-import { Single } from "./views/single";
 import injectContext from "./store/appContext";
 
-import { Navbar } from "./component/navbar";
-import { Footer } from "./component/footer";
 
-//create your first component
 const Layout = () => {
-	//the basename is used when your project is published in a subdirectory and not in the root of the domain
-	// you can set the basename on the .env file located at the root of this project, E.g: BASENAME=/react-hello-webapp/
-	const basename = process.env.BASENAME || "";
+    const basename = process.env.BASENAME || "";
 
-	return (
-		<div>
-			<BrowserRouter basename={basename}>
-				<ScrollToTop>
-					<Navbar />
-					<Routes>
-						<Route path="/" element={<Home />} />
-						<Route path="/demo" element={<Demo />} />
-						<Route path="/single/:theid" element={<Single />} />
-						<Route path="*" element={<h1>Not found!</h1>} />
-					</Routes>
-					<Footer />
-				</ScrollToTop>
-			</BrowserRouter>
-		</div>
-	);
+    return (  //Definimos las rutas de cada componente
+        <div> 
+            <BrowserRouter basename={basename}>
+                <ScrollToTop>
+                    <Routes>
+                        <Route path="/" element={<Home />} /> 
+                        <Route path="/new-contact" element={<NewContact />} />
+                        <Route path="*" element={<h1>Not found!</h1>} /> 
+                    </Routes>
+                </ScrollToTop>
+            </BrowserRouter>
+        </div>
+    );
 };
 
 export default injectContext(Layout);
+/*
+Podría crear un nuevo componente DETAILSCONTACT para mostrar los detalles de cada contacto por su ID y específicarlo en la ruta:
+<Route path="/DetailsContact/:theid" element={<DetailsContact />} /> 
+En el componente DETAILSCONTACT estaría el código para obtener los detalles del contacto.
+En el componente CONTACTS la lógica que me redirige a DETAILSCONTACT. 
+Esto mejora la experiencia de usuario.*/
